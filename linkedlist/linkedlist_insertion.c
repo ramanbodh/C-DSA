@@ -18,8 +18,41 @@ struct Node{
 
 
 struct Node * insertion_n(struct Node * head,int n,int data){
+    struct Node * newnode=(struct Node*)malloc(sizeof(struct Node));
+    newnode->data=data;
+    newnode->next=NULL;
     if(n==1||head==NULL){
-        struct Node * newnode=(struct Node*)malloc(sizeof(struct No
-        
+        newnode->next=head;
+        return newnode;
     }
+    struct Node * temp=head;
+    for(int i=1;i<n-1;i++){
+        if(temp->next==NULL){
+            break;
+        }
+        temp=temp->next;
+    }
+    newnode->next=temp->next;
+    temp->next=newnode;
+    return head;
 }
+void display(struct Node* head){
+    while(head!=NULL){
+        printf(" %d ->",head->data);
+        head=head->next;
+    }
+    printf("NULL\n");
+}
+
+int main(){
+    struct Node * head=NULL;
+    head=insertion_n(head,2,33);
+    head=insertion_n(head,1,43);
+    head=insertion_n(head,1,34);
+    display(head);
+    head=insertion_n(head,1,44);
+    display(head);
+    return 0;
+
+}
+
