@@ -27,7 +27,7 @@ struct Node * insertion_n(struct Node * head,int n,int data){
     }
     struct Node * temp=head;
     for(int i=1;i<n-1;i++){
-        if(temp->next==NULL){
+        if(temp->next==NULL){//or we can directly add the in the above for loop with && temp->next!=NULL
             break;
         }
         temp=temp->next;
@@ -53,6 +53,5 @@ int main(){
     head=insertion_n(head,1,44);
     display(head);
     return 0;
-
 }
 
