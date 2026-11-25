@@ -1,0 +1,3 @@
+Filtered integers: 12 23 546 568 67 77 
+Count: 6
+Average: 215.50
